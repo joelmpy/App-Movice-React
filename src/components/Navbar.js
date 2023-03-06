@@ -1,31 +1,45 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 function Navbar() {
+
+  let array = [
+    {
+      name:"Home",
+      link:'popular'
+    },
+    {
+      name:"Theatre",
+      link:'theatre'
+    },
+    {
+      name:"Kids",
+      link:'kids'
+    },
+    {
+      name:"Drama",
+      link:'drama'
+    },
+    {
+      name:"Comedie",
+      link:'Comedie'
+    },
+  ]
+
   return (
     <nav className="navBar">
       <div className="logo">
         <i class="fa-solid fa-camera"></i>
       </div>
       <ul className="nav-links">
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/Comedie">Comedie</NavLink>
-        </li>
-        <li>
-          <NavLink to="/Drama">Drama</NavLink>
-        </li>
-        <li>
-          <NavLink to="/Kids">Kids</NavLink>
-        </li>
-        <li>
-          <NavLink to="/Serie">Serie</NavLink>
-        </li>
-        <li>
-          <NavLink to="/Popular">Popular</NavLink>
-        </li>
+      {
+        array.map((item) => {
+          return (
+            <li>
+              <Link to={`/${item.link}`}>{item.name}</Link>
+            </li>
+          )
+        })      }
       </ul>
       <div className="search-btn">
       <form>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 function Card(movie) {
 let img_movie = "https://image.tmdb.org/t/p/w500"
-
   return (
     <>
       <div className="movie-card">
@@ -20,6 +19,7 @@ let img_movie = "https://image.tmdb.org/t/p/w500"
           View more
           </Link>
         </div>
+
       </div>
     </>
   );
