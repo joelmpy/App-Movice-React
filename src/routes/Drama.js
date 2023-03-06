@@ -1,10 +1,9 @@
 import React from 'react'
-import Card from "../components/Card";
 
-function Drama(movie) {
+function Drama() {
   return (
     <div>
-      <Card/>
+      Drama
     </div>
   )
 }

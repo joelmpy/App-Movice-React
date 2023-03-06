@@ -1,5 +1,6 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
+
 import Drama from "../routes/Drama"
 import Comedie from "../routes/Comedie"
 import Kids from "../routes/Kids"
@@ -9,6 +10,8 @@ import FullCard from './FullCard'
 import Home from '../routes/Home'
 
 function Routeur() {
+
+
   return (
     <Routes>
         <Route path="/" element={<Home/>}></Route>
@@ -17,7 +20,7 @@ function Routeur() {
         <Route path="/Kids" element={<Kids/>}></Route>
         <Route path="/Serie" element={<Serie/>}></Route>
         <Route path="/Popular" element={<Popular/>}></Route>
-        <Route path="/cards/:id" element={<FullCard/>}></Route>
+        <Route path="/movie/:id" element={<FullCard />}></Route>
     </Routes>
   )
 }
