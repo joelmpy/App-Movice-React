@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "../fullCard.css"
+import "./fullCard.css"
 
 function FullCard() {
   const [currentMovieDetail, setMovie] = useState();
