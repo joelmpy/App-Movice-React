@@ -1,7 +1,12 @@
 import React from "react";
+import { useState } from "react"
+import { FaBars } from "react-icons/fa"
+import { ImCross } from "react-icons/im"
 import { Link } from "react-router-dom";
 
 function Navbar() {
+
+  const [Mobile, setMobile] = useState(false)
   let array = [
     {
       name: "Popular",
@@ -26,11 +31,11 @@ function Navbar() {
   ];
 
   return (
-    <nav className="navBar">
+    <nav className="navbar">
       <div className="logo">
         <i class="fa-solid fa-camera"></i>
       </div>
-      <ul className="nav-links">
+      <ul className={Mobile ? "nav-links-mobile" : "nav-links"} onClick={() => setMobile(false)}>
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -42,6 +47,9 @@ function Navbar() {
           );
         })}
       </ul>
+      <button className='mobile-menu-icon' onClick={() => setMobile(!Mobile)}>
+          {Mobile ? <ImCross /> : <FaBars />}
+        </button>
     </nav>
   );
 }

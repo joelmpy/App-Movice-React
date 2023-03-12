@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import errorPage from "../images/error.jpg"
 
 function Card(movie) {
-let img_movie = "https://image.tmdb.org/t/p/w500"
+let image_api = "https://image.tmdb.org/t/p/w500"
 
 const setVoteClass = (vote) => {
   if(vote >= 8){
@@ -20,7 +21,7 @@ const setVoteClass = (vote) => {
       <Link to={`/Movie/${movie.info.id}`} className="bn.62">
       <div className="main-card">
         <img
-          src={`${img_movie}${movie.info.poster_path}`}
+              src= {movie.info.poster_path ? (image_api + movie.info.poster_path) : (errorPage)}
           alt={movie.info.original_title}
           className="poster"
         />

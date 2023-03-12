@@ -23,45 +23,92 @@ html {
 
 }
 
-.navBar {
-  background-color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 0;
-  width: 100%;
-  height: 120px;
-}
-
-.logo {
-  padding: 15px;
-  font-size: 50px;
-  font-weight: bold;
-  color: black;
-}
-
-.navBar .nav-links li {
-  display: inline-block;
-  list-style: none;
-  margin: 20px;
-  font-size: clamp(1rem, 1.7vw, 1.6rem); 
-}
-
-.navBar .nav-links li a {
-  color: black;
-  font-weight: bold;
+a {
   text-decoration: none;
 }
+li {
+  list-style-type: none;
+}
 
-.navBar .nav-links li a:hover {
-  transition: 0.4s;
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  box-shadow: rgba(50, 50, 93, 0.23) 0px 30px 30px -20px;
+
+  /*box-shadow: rgba(50, 50, 93, 0.23) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;*/
+}
+.logo {
+  font-size: 30px;
+}
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  width: 75%;
+}
+
+.nav-links li a {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.nav-links li a:hover {
   color: red;
 }
 
-
-@media screen and (max-width : 900px) {
-  
+.mobile-menu-icon {
+  display: none;
 }
+button {
+  border: none;
+  text-decoration: none;
+  font-size: 25px;
+  background: none;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .logo {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    left: 35px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .nav-links-mobile {
+    position: absolute;
+    display: block;
+    list-style: none;
+    box-shadow: rgba(50, 50, 93, 0.23) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    left: 0;
+    top: 10%;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+    background-color: white;
+  }
+  ul li {
+    padding: 32px;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    text-align: center;
+  }
+  .mobile-menu-icon {
+    position: absolute;
+    display: block;
+    right: 20px;
+  }
+}
+
+
+
+
 
 
 /* .link-overview {
@@ -120,16 +167,3 @@ html {
 
 
 
-@media screen and (max-width :900px) {
-  .navBar {
-    height: 180px;
-  }
-  .navBar .nav-links {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .navBar .nav-links li {
-    padding-top: 10px;
-  }
-}

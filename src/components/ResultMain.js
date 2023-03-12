@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import errorPage from "../images/error.jpg"
 
 function ResultMain(allmovies) {
   const image_api = "https://image.tmdb.org/t/p/w500";
@@ -19,7 +20,7 @@ function ResultMain(allmovies) {
      <Link to={`/Movie/${allmovies.movies.id}`} className="bn.62">
       <div className="main-card">
         <img
-          src={`${image_api}${allmovies.movies.poster_path}`}
+          src= {allmovies.movies.poster_path ? (image_api + allmovies.movies.poster_path) : (errorPage)}
           alt={allmovies.movies.original_title}
           className="poster"
         />
