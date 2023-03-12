@@ -5,7 +5,7 @@ import "./fullCard.css"
 function FullCard() {
   const [currentMovieDetail, setMovie] = useState();
   const { id } = useParams();
- const [video_url, setVideoUrl] = useState();
+ const [video_url, setVideoUrl] = useState([]);
 
   useEffect(() => {
     getData();
@@ -78,7 +78,7 @@ function FullCard() {
                     
 
 
-        <iframe width="560" height="315" src={`https://www.youtube.com/watch?v=`+video_url}  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src={`https://www.youtube.com/embed/`+video_url}  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
