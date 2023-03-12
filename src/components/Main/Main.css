@@ -2,14 +2,14 @@
     width: 100%;
     padding-right: 12px;
     padding-left: 12px;
-    padding-top: 30px;
-    background: rgb(2, 0, 30);
-    background: linear-gradient(171deg, rgb(5, 3, 50) 13%, rgba(0, 0, 0, 1) 53%, rgba(6, 4, 59, 1) 98%);
+    /* padding-top: 30px; */
+    display: flex;
+    align-items: center;
 }
 
 .content-search-bar {
     padding: 15px 30px;
-    width: 50%;
+    width: 60%;
     margin-right: auto;
     margin-left: auto;
 }
@@ -17,11 +17,11 @@
 
 .content-search-bar input[type="text"] {
     border: 2px solid #DBDEE9;
-    padding: 23px 15px;
+    padding: 10px 15px;
     color: #001340;
     width: 100%;
     border-radius: 30px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 500;
     background-color: #e4e6ed;
     border: none;
@@ -66,8 +66,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background: rgb(11, 6, 113);
-    background: linear-gradient(171deg, rgba(11, 6, 113, 1) 13%, rgba(0, 0, 0, 1) 53%, rgba(6, 4, 59, 1) 98%);
 }
 
 .main-card {
@@ -77,7 +75,7 @@
     border-radius: 10px;
     box-shadow: 15px 5px 30px rgba(208, 208, 208, 0.3);
     overflow: hidden;
-    /* position: relative; */
+    position: relative;
     cursor: pointer;
 }
 
@@ -122,7 +120,7 @@
     max-height: 100%;
     color: white;
     padding: 1rem;
-    transform: translateY(102%);
+    transform: translateY(100%);
     transition: transform 0.3s ease-in-out;
 }
 
