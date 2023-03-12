@@ -6,6 +6,7 @@ function FullCard() {
   const [currentMovieDetail, setMovie] = useState();
   const { id } = useParams();
  const [video_url, setVideoUrl] = useState([]);
+ const [cast, setCast] = useState([])
 
   useEffect(() => {
     getData();
@@ -13,24 +14,25 @@ function FullCard() {
   }, []);
 
   const getData = () => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        fetch(
-        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`
-        )
+    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
+    .then((res) => res.json())
+    .then((data) => {
+        fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
         .then((res) => res.json())
         .then((donnes) => {
-          setMovie(data)
-          setVideoUrl(donnes.results[0].key)
-          console.log(donnes.results[0].key)
-      }
-      );
-      }
-      );
+          fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
+          .then((res) => res.json())
+          .then((donnesActeur) => {
+            setMovie(data)
+            setVideoUrl(donnes.results[0].key)
+            setCast(donnesActeur.cast)
+          });
+        });
+      });
   };
+
+
+   
 
   return (
     <div className="movie">
@@ -79,7 +81,14 @@ function FullCard() {
 
 
         <iframe width="560" height="315" src={`https://www.youtube.com/embed/`+video_url}  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+        {
+            cast.map((actor, index)=>{
+                if(index < 5){
+                    return <img src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}/>
+                }
+             
+            })
+        }
 
 
 

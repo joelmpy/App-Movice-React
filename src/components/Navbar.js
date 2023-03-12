@@ -24,7 +24,7 @@ function Navbar() {
   }, [search]);
 
 const getAllMovieData = () => {
-  fetch('https://api.themoviedb.org/3//discover/movie?sort_by=popularity.desc&api_key=d3ca35757329b1e58d8f3e823b92f650')
+  fetch('https://api.themoviedb.org/3/movie/top_rated?&api_key=d3ca35757329b1e58d8f3e823b92f650&language=en-US&page=1')
   .then(reponse => reponse.json())
   .then(res => Context.setmovieContent(res.results))
   .catch((error) => {
