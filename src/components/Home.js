@@ -45,7 +45,7 @@ function Home() {
               };
 
               return (
-                <div className="container">
+                <div className="result-container">
                   {movieData.length === 0 ? (
                     <p className="error">Not false</p>
                   ) : (

@@ -45,20 +45,17 @@ const getAllMovieData = () => {
     <>
       <section id="search-bar">
         <div className="container-search">
-          <div className="container-cinema-search-bar">
             <div className="content-search-bar">
-              <div className="block-title">
-                <h2>Les séances dans mon cinéma</h2>
-              </div>
               <input type="text" placeholder="Rechercher un film..." onChange={handleChange} value={search} />
             </div>
-          </div>
         </div>
         <div className="result-container">
           {
                movieApi.length === 0
                ?
-               <div className="text-3xl text-center mt-2"> Loading... </div>
+               <div className="new-error">
+                <p>sorry no movie found... </p>
+               </div>
                :
                movieApi.map((allmovies) => (
                 <ResultMain movies={allmovies} />

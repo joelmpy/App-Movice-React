@@ -15,7 +15,7 @@ html {
 
 :root {
   --sideBgColor: #040b14;
-  --sectionBgColor: #05101e;
+  --sectionBgColor:#373b69;;
   --themeColor: "";
   --iconBgColor: "";
   --textColor: "";
@@ -24,8 +24,7 @@ html {
 }
 
 .navBar {
-  background-color: var(--sectionBgColor);
-  color: white;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,7 +37,7 @@ html {
   padding: 15px;
   font-size: 50px;
   font-weight: bold;
-  color: #f7f7f7;
+  color: black;
 }
 
 .navBar .nav-links li {
@@ -49,14 +48,14 @@ html {
 }
 
 .navBar .nav-links li a {
-  color: white;
+  color: black;
+  font-weight: bold;
   text-decoration: none;
 }
 
 .navBar .nav-links li a:hover {
-  background: red;
   transition: 0.4s;
-  color: black;
+  color: red;
 }
 
 
@@ -64,76 +63,6 @@ html {
   
 }
 
-
-
-.container {
-  width: 80%;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.movie-card {
-  width: 320px;
-  height: 500px;
-  box-shadow: 15px 5px 30px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  margin: 0px 20px 10 20px;
-  overflow: hidden;
-  margin: 10px;
-  box-sizing: border-box;
-  position: relative;
-  color: white;
-}
-
-.movie-card .poster {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-    opacity: 1;
-    transition: transform .2s;
-    cursor: pointer;
-}
-
-.movie-card .poster:hover {
-  transform: scale(1.1);
-  z-index: 900;
-}
-
-.movie-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.movie-details .box {
-  width: 100%;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.raiting {
-  width: 45px;
-  height: 45px;
-  border-radius: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  border: 1px solid red;
-  color: #040b14;
-  font-weight: bold;
-  font-size: 20px;
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-}
 
 /* .link-overview {
   display: flex;
@@ -162,7 +91,7 @@ html {
 } */
 
 
-.full {
+/* .full {
   background: #2a3961;
 }
 
@@ -185,7 +114,7 @@ html {
   font-size: 70px;
 }
 
-
+ */
 
 
 
