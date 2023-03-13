@@ -97,10 +97,14 @@ function FullCard() {
 
                     </div>
                 </div>
-
-
-
             </div>
+
+            
+            <div className="movie-casts">
+                div        
+            </div>
+
+
 
             {/* <div className="movie__intro">
             <img className="movie__backdrop" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.backdrop_path : ""}`} />
