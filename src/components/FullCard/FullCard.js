@@ -3,41 +3,106 @@ import { useParams } from "react-router-dom";
 import "./fullCard.css"
 
 function FullCard() {
-  const [currentMovieDetail, setMovie] = useState();
-  const { id } = useParams();
- const [video_url, setVideoUrl] = useState([]);
- const [cast, setCast] = useState([])
+    const [movieDetail, setMovie] = useState();
+    const { id } = useParams();
+    const [video_url, setVideoUrl] = useState([]);
+    const [cast, setCast] = useState([])
 
-  useEffect(() => {
-    getData();
-    window.scrollTo(0, 0);
-  }, []);
+    const img_Api = "https://image.tmdb.org/t/p/original"
+    const imdb_Link = "https://www.imdb.com/title/"
 
-  const getData = () => {
-    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
-    .then((res) => res.json())
-    .then((data) => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
-        .then((res) => res.json())
-        .then((donnes) => {
-          fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
-          .then((res) => res.json())
-          .then((donnesActeur) => {
-            setMovie(data)
-            setVideoUrl(donnes.results[0].key)
-            setCast(donnesActeur.cast)
-          });
-        });
-      });
-  };
+    useEffect(() => {
+        getData();
+        window.scrollTo(0, 0);
+    }, []);
+
+    const getData = () => {
+        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
+            .then((res) => res.json())
+            .then((data) => {
+                fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
+                    .then((res) => res.json())
+                    .then((donnes) => {
+                        fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
+                            .then((res) => res.json())
+                            .then((donnesActeur) => {
+                                setMovie(data)
+                                setVideoUrl(donnes.results[0].key)
+                                setCast(donnesActeur.cast)
+                            });
+                    });
+            });
+    };
 
 
-   
 
-  return (
-    <div className="movie">
+    return (
+        <div className="movie-fullCard">
 
-        <div className="movie__intro">
+            <div className="container_movie_overview_wrapper">
+                <div class="backdrop_container_image">
+                    <img
+                        className="backdrop_image"
+                        src={movieDetail ? (img_Api + movieDetail.backdrop_path) : ""}
+                    />
+                </div>
+
+                <div className="view_container">
+                    <div className="view_wrapper">
+
+                        <div className="view_poster">
+                            <img
+                                className="view_img"
+                                src={movieDetail ? (img_Api + movieDetail.poster_path) : ""} alt="" />
+                        </div>
+
+                        <div className="view-details">
+                            <h1 className="view__title">{movieDetail ? movieDetail.original_title : ""}</h1>
+                            <p className="view-raiting">
+                                <i class="fas fa-star" />
+                                {movieDetail ? movieDetail.vote_average : ""}
+                                <span className="movie__voteCount">{movieDetail ? " ( " + movieDetail.vote_count + " ) votes" : ""}</span>
+                            </p>
+
+                            <div className="movie-genres">
+                                {
+                                    movieDetail && movieDetail.genres
+                                        ?
+                                        movieDetail.genres.map(genre => (
+                                            <><span className="movie-text" id={genre.id}>{genre.name} /</span></>
+                                        ))
+                                        :
+                                        ""
+                                }
+                            </div>
+
+                            <div className="overview-container">
+                                <h4 className="view_overview_title">Overview</h4>
+                                <p className="view_overview-pargraph">{movieDetail ? movieDetail.overview : ""}</p>
+                            </div>
+
+                            <div className="btn-movie">
+                                {
+                                    movieDetail && movieDetail.homepage &&
+                                    <a href={movieDetail.homepage} target="_blank" className="btn-1">Homepage</a>
+                                }
+
+                                {
+                                    movieDetail && movieDetail.imdb_id && <a href={imdb_Link + movieDetail.imdb_id} target="_blank" className="btn-1">Imbd</a>
+                                }
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            {/* <div className="movie__intro">
             <img className="movie__backdrop" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.backdrop_path : ""}`} />
         </div>
 
@@ -122,9 +187,9 @@ function FullCard() {
                     </>
                 ))
             }
+        </div> */}
         </div>
-    </div>
-)
+    )
 }
 
 export default FullCard;
